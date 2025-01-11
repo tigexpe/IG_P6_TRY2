@@ -1,0 +1,683 @@
+[gd_scene load_steps=39 format=3 uid="uid://jgudfq1vs2ab"]
+
+[ext_resource type="Script" path="res://scripts/cripta_sala_2/cripta.gd" id="1_cjm2h"]
+[ext_resource type="Script" path="res://scripts/cripta_sala_2/cripta_sala_2.gd" id="2_dddet"]
+[ext_resource type="Texture2D" uid="uid://e5brvahbvh4f" path="res://textures/Ground_03.png" id="3_515h6"]
+[ext_resource type="Script" path="res://scripts/cripta_sala_2/portal_sala_2.gd" id="4_4gce4"]
+[ext_resource type="Script" path="res://scripts/cripta_sala_2/neo_pared_2.gd" id="4_tjpxt"]
+[ext_resource type="Script" path="res://scripts/cripta_sala_2/cripta_sala_3.gd" id="4_ybage"]
+[ext_resource type="Script" path="res://scripts/cripta_sala_2/cripta_sala_4.gd" id="5_xe0mv"]
+[ext_resource type="Script" path="res://scripts/cripta_sala_2/cripta_sala_5.gd" id="6_21uvf"]
+[ext_resource type="Script" path="res://scripts/cripta_sala_2/plat_fila_1.gd" id="6_lhmr5"]
+[ext_resource type="Script" path="res://scripts/cripta_sala_2/cripta_sala_6.gd" id="7_fb8ii"]
+[ext_resource type="Script" path="res://scripts/cripta_sala_2/interruptor_1.gd" id="8_aomea"]
+[ext_resource type="Script" path="res://scripts/cripta_sala_2/interruptor_1_s4.gd" id="11_kfo7o"]
+[ext_resource type="Script" path="res://scripts/cripta_sala_2/interruptor_1_s5.gd" id="13_j34k5"]
+[ext_resource type="Script" path="res://scripts/cripta_sala_2/chara_camera_1_cripta_sala_2.gd" id="15_birbm"]
+[ext_resource type="Script" path="res://scripts/cripta_sala_2/materiales_y_texturas.gd" id="18_eulnr"]
+[ext_resource type="Script" path="res://scripts/cripta_sala_2/world_environment.gd" id="20_wle8y"]
+[ext_resource type="Script" path="res://scripts/player_animation/player_animation.gd" id="21_guqmb"]
+[ext_resource type="Script" path="res://scripts/modelos/beethoven_1.gd" id="22_xbojw"]
+[ext_resource type="Script" path="res://otra_luz.gd" id="23_revub"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cn0v5"]
+size = Vector3(8, 4, 86)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_247wr"]
+albedo_color = Color(0, 1, 1, 1)
+albedo_texture = ExtResource("3_515h6")
+uv1_scale = Vector3(512, 512, 512)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k4k2n"]
+size = Vector3(8, 4, 86)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_enwr6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ta86w"]
+size = Vector3(0.8, 1, 0.4)
+
+[sub_resource type="SphereMesh" id="SphereMesh_i5lo7"]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v3ofe"]
+top_radius = 0.18
+bottom_radius = 0.18
+height = 0.6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jarup"]
+top_radius = 0.18
+bottom_radius = 0.18
+height = 0.6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4dtxy"]
+top_radius = 0.18
+bottom_radius = 0.18
+height = 0.6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wvp5c"]
+top_radius = 0.18
+bottom_radius = 0.18
+height = 0.6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jxoh3"]
+top_radius = 0.18
+bottom_radius = 0.18
+height = 0.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5ot5b"]
+top_radius = 0.18
+bottom_radius = 0.18
+height = 0.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dayhp"]
+top_radius = 0.18
+bottom_radius = 0.18
+height = 0.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_so8ia"]
+top_radius = 0.18
+bottom_radius = 0.18
+height = 0.8
+
+[sub_resource type="Environment" id="Environment_xwpvi"]
+background_mode = 1
+background_energy_multiplier = 1.5
+ambient_light_source = 2
+tonemap_exposure = 0.66
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_664db"]
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.564706, 0, 0.572549, 0.796078)
+metallic = 0.71
+metallic_specular = 0.69
+metallic_texture_channel = 1
+roughness = 0.25
+
+[sub_resource type="BoxMesh" id="BoxMesh_0nro7"]
+size = Vector3(10, 10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3lk4v"]
+albedo_color = Color(0.75531, 0.143009, 0.285111, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_y8jli"]
+
+[node name="Cripta" type="Node3D"]
+script = ExtResource("1_cjm2h")
+
+[node name="Cripta_Sala_2" type="Node3D" parent="."]
+script = ExtResource("2_dddet")
+
+[node name="Suelo" type="Node3D" parent="Cripta_Sala_2"]
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_2/Suelo"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_2/Suelo/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_2/Suelo/Body"]
+
+[node name="Pared1" type="Node3D" parent="Cripta_Sala_2"]
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_2/Pared1"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_2/Pared1/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_2/Pared1/Body"]
+
+[node name="Pared2" type="Node3D" parent="Cripta_Sala_2"]
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_2/Pared2"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_2/Pared2/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_2/Pared2/Body"]
+
+[node name="Pared3" type="Node3D" parent="Cripta_Sala_2"]
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_2/Pared3"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_2/Pared3/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_2/Pared3/Body"]
+
+[node name="Pared4" type="Node3D" parent="Cripta_Sala_2"]
+
+[node name="Fragment1" type="Node3D" parent="Cripta_Sala_2/Pared4"]
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_2/Pared4/Fragment1"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_2/Pared4/Fragment1/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_2/Pared4/Fragment1/Body"]
+
+[node name="Fragment2" type="Node3D" parent="Cripta_Sala_2/Pared4"]
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_2/Pared4/Fragment2"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_2/Pared4/Fragment2/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_2/Pared4/Fragment2/Body"]
+
+[node name="Fragment3" type="Node3D" parent="Cripta_Sala_2/Pared4"]
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_2/Pared4/Fragment3"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_2/Pared4/Fragment3/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_2/Pared4/Fragment3/Body"]
+
+[node name="Techo" type="Node3D" parent="Cripta_Sala_2"]
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_2/Techo"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_2/Techo/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_2/Techo/Body"]
+
+[node name="Puente1" type="Node3D" parent="Cripta_Sala_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93)
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_2/Puente1"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_2/Puente1/Body"]
+shape = SubResource("BoxShape3D_cn0v5")
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_2/Puente1/Body"]
+material_override = SubResource("StandardMaterial3D_247wr")
+mesh = SubResource("BoxMesh_k4k2n")
+
+[node name="NeoPared2" type="Node3D" parent="Cripta_Sala_2"]
+transform = Transform3D(0.993199, -0.116428, 0, 0.116428, 0.993199, 0, 0, 0, 1, -12.0289, 6.06227, -31.1877)
+script = ExtResource("4_tjpxt")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Cripta_Sala_2/NeoPared2" groups=["BIlluminator"]]
+material_override = SubResource("StandardMaterial3D_enwr6")
+use_collision = true
+size = Vector3(10, 10, 1)
+
+[node name="Portal" type="Node3D" parent="Cripta_Sala_2"]
+script = ExtResource("4_4gce4")
+
+[node name="Cripta_Sala_3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -186)
+script = ExtResource("4_ybage")
+
+[node name="Suelo" type="Node3D" parent="Cripta_Sala_3"]
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_3/Suelo"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_3/Suelo/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_3/Suelo/Body"]
+
+[node name="Techo" type="Node3D" parent="Cripta_Sala_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_3/Techo"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_3/Techo/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_3/Techo/Body"]
+
+[node name="Pared1" type="Node3D" parent="Cripta_Sala_3"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_3/Pared1"]
+use_collision = true
+
+[node name="Pared2" type="Node3D" parent="Cripta_Sala_3"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_3/Pared2"]
+use_collision = true
+
+[node name="Pared3" type="Node3D" parent="Cripta_Sala_3"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_3/Pared3"]
+use_collision = true
+
+[node name="Pared4" type="Node3D" parent="Cripta_Sala_3"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_3/Pared4"]
+use_collision = true
+
+[node name="Puente2" type="Node3D" parent="Cripta_Sala_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -90)
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_3/Puente2"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_3/Puente2/Body"]
+shape = SubResource("BoxShape3D_cn0v5")
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_3/Puente2/Body"]
+material_override = SubResource("StandardMaterial3D_247wr")
+mesh = SubResource("BoxMesh_k4k2n")
+
+[node name="Puente3" type="Node3D" parent="Cripta_Sala_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -90)
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_3/Puente3"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_3/Puente3/Body"]
+shape = SubResource("BoxShape3D_cn0v5")
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_3/Puente3/Body"]
+material_override = SubResource("StandardMaterial3D_247wr")
+mesh = SubResource("BoxMesh_k4k2n")
+
+[node name="Puente4" type="Node3D" parent="Cripta_Sala_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -90)
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_3/Puente4"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_3/Puente4/Body"]
+shape = SubResource("BoxShape3D_cn0v5")
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_3/Puente4/Body"]
+material_override = SubResource("StandardMaterial3D_247wr")
+mesh = SubResource("BoxMesh_k4k2n")
+
+[node name="Puente5" type="Node3D" parent="Cripta_Sala_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -90)
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_3/Puente5"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_3/Puente5/Body"]
+shape = SubResource("BoxShape3D_cn0v5")
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_3/Puente5/Body"]
+material_override = SubResource("StandardMaterial3D_247wr")
+mesh = SubResource("BoxMesh_k4k2n")
+
+[node name="Cripta_Sala_4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -185)
+script = ExtResource("5_xe0mv")
+
+[node name="Suelo" type="Node3D" parent="Cripta_Sala_4"]
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_4/Suelo"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_4/Suelo/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_4/Suelo/Body"]
+
+[node name="Techo" type="Node3D" parent="Cripta_Sala_4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_4/Techo"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_4/Techo/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_4/Techo/Body"]
+
+[node name="Pared1" type="Node3D" parent="Cripta_Sala_4"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_4/Pared1"]
+use_collision = true
+
+[node name="Pared2" type="Node3D" parent="Cripta_Sala_4"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_4/Pared2"]
+use_collision = true
+
+[node name="Pared3" type="Node3D" parent="Cripta_Sala_4"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_4/Pared3"]
+use_collision = true
+
+[node name="Pared4" type="Node3D" parent="Cripta_Sala_4"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_4/Pared4"]
+use_collision = true
+
+[node name="PlatFila1" type="Node3D" parent="Cripta_Sala_4"]
+script = ExtResource("6_lhmr5")
+
+[node name="PlatFila2" type="Node3D" parent="Cripta_Sala_4"]
+script = ExtResource("6_lhmr5")
+
+[node name="PlatFila3" type="Node3D" parent="Cripta_Sala_4"]
+script = ExtResource("6_lhmr5")
+
+[node name="PlatFila4" type="Node3D" parent="Cripta_Sala_4"]
+script = ExtResource("6_lhmr5")
+
+[node name="PlatFila5" type="Node3D" parent="Cripta_Sala_4"]
+script = ExtResource("6_lhmr5")
+
+[node name="PlatFila6" type="Node3D" parent="Cripta_Sala_4"]
+script = ExtResource("6_lhmr5")
+
+[node name="PlatFila7" type="Node3D" parent="Cripta_Sala_4"]
+script = ExtResource("6_lhmr5")
+
+[node name="PlatFila8" type="Node3D" parent="Cripta_Sala_4"]
+script = ExtResource("6_lhmr5")
+
+[node name="PlatFila9" type="Node3D" parent="Cripta_Sala_4"]
+script = ExtResource("6_lhmr5")
+
+[node name="PlatFila10" type="Node3D" parent="Cripta_Sala_4"]
+script = ExtResource("6_lhmr5")
+
+[node name="Interruptor1" type="Node3D" parent="Cripta_Sala_4"]
+script = ExtResource("11_kfo7o")
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_4/Interruptor1"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_4/Interruptor1/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_4/Interruptor1/Body"]
+
+[node name="Light" type="OmniLight3D" parent="Cripta_Sala_4/Interruptor1"]
+
+[node name="Cripta_Sala_5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -185)
+script = ExtResource("6_21uvf")
+
+[node name="Suelo" type="Node3D" parent="Cripta_Sala_5"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_5/Suelo"]
+use_collision = true
+
+[node name="Techo" type="Node3D" parent="Cripta_Sala_5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_5/Techo"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_5/Techo/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_5/Techo/Body"]
+
+[node name="Pared1" type="Node3D" parent="Cripta_Sala_5"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_5/Pared1"]
+use_collision = true
+
+[node name="Pared2" type="Node3D" parent="Cripta_Sala_5"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_5/Pared2"]
+use_collision = true
+
+[node name="Pared3" type="Node3D" parent="Cripta_Sala_5"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_5/Pared3"]
+use_collision = true
+
+[node name="Pared4" type="Node3D" parent="Cripta_Sala_5"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_5/Pared4"]
+use_collision = true
+
+[node name="Interruptor1" type="Node3D" parent="Cripta_Sala_5"]
+script = ExtResource("13_j34k5")
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_5/Interruptor1"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_5/Interruptor1/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_5/Interruptor1/Body"]
+
+[node name="Light" type="OmniLight3D" parent="Cripta_Sala_5/Interruptor1"]
+
+[node name="Cripta_Sala_6" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -185)
+script = ExtResource("7_fb8ii")
+
+[node name="Suelo" type="Node3D" parent="Cripta_Sala_6"]
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_6/Suelo"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_6/Suelo/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_6/Suelo/Body"]
+
+[node name="Techo" type="Node3D" parent="Cripta_Sala_6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_6/Techo"]
+
+[node name="Collider" type="CollisionShape3D" parent="Cripta_Sala_6/Techo/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Cripta_Sala_6/Techo/Body"]
+
+[node name="Pared1" type="Node3D" parent="Cripta_Sala_6"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_6/Pared1"]
+use_collision = true
+
+[node name="Pared2" type="Node3D" parent="Cripta_Sala_6"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_6/Pared2"]
+use_collision = true
+
+[node name="Pared3" type="Node3D" parent="Cripta_Sala_6"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_6/Pared3"]
+use_collision = true
+
+[node name="Pared4" type="Node3D" parent="Cripta_Sala_6"]
+
+[node name="CajaSolida" type="CSGBox3D" parent="Cripta_Sala_6/Pared4"]
+use_collision = true
+
+[node name="Interruptor1" type="Node3D" parent="Cripta_Sala_6"]
+script = ExtResource("8_aomea")
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_6/Interruptor1"]
+
+[node name="Light" type="OmniLight3D" parent="Cripta_Sala_6/Interruptor1"]
+
+[node name="Interruptor2" type="Node3D" parent="Cripta_Sala_6"]
+script = ExtResource("8_aomea")
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_6/Interruptor2"]
+
+[node name="Light" type="OmniLight3D" parent="Cripta_Sala_6/Interruptor2"]
+
+[node name="Interruptor3" type="Node3D" parent="Cripta_Sala_6"]
+script = ExtResource("8_aomea")
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_6/Interruptor3"]
+
+[node name="Light" type="OmniLight3D" parent="Cripta_Sala_6/Interruptor3"]
+
+[node name="Interruptor4" type="Node3D" parent="Cripta_Sala_6"]
+script = ExtResource("8_aomea")
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_6/Interruptor4"]
+
+[node name="Light" type="OmniLight3D" parent="Cripta_Sala_6/Interruptor4"]
+
+[node name="Interruptor5" type="Node3D" parent="Cripta_Sala_6"]
+script = ExtResource("8_aomea")
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_6/Interruptor5"]
+
+[node name="Light" type="OmniLight3D" parent="Cripta_Sala_6/Interruptor5"]
+
+[node name="Interruptor6" type="Node3D" parent="Cripta_Sala_6"]
+script = ExtResource("8_aomea")
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_6/Interruptor6"]
+
+[node name="Light" type="OmniLight3D" parent="Cripta_Sala_6/Interruptor6"]
+
+[node name="Interruptor7" type="Node3D" parent="Cripta_Sala_6"]
+script = ExtResource("8_aomea")
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_6/Interruptor7"]
+
+[node name="Light" type="OmniLight3D" parent="Cripta_Sala_6/Interruptor7"]
+
+[node name="Interruptor8" type="Node3D" parent="Cripta_Sala_6"]
+script = ExtResource("8_aomea")
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_6/Interruptor8"]
+
+[node name="Light" type="OmniLight3D" parent="Cripta_Sala_6/Interruptor8"]
+
+[node name="Interruptor9" type="Node3D" parent="Cripta_Sala_6"]
+script = ExtResource("8_aomea")
+
+[node name="Body" type="StaticBody3D" parent="Cripta_Sala_6/Interruptor9"]
+
+[node name="Light" type="OmniLight3D" parent="Cripta_Sala_6/Interruptor9"]
+
+[node name="MaterialesYTexturas" type="Node3D" parent="."]
+script = ExtResource("18_eulnr")
+
+[node name="CharaCamera1" type="Node3D" parent="."]
+
+[node name="Body" type="CharacterBody3D" parent="CharaCamera1"]
+script = ExtResource("15_birbm")
+
+[node name="Camera1" type="Camera3D" parent="CharaCamera1/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
+
+[node name="Collider" type="CollisionShape3D" parent="CharaCamera1/Body"]
+
+[node name="Mesh" type="MeshInstance3D" parent="CharaCamera1/Body"]
+
+[node name="PlayerAnimation" type="Node3D" parent="CharaCamera1/Body/Mesh"]
+script = ExtResource("21_guqmb")
+
+[node name="Tronco" type="Node3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation"]
+
+[node name="Mesh" type="MeshInstance3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco"]
+mesh = SubResource("BoxMesh_ta86w")
+
+[node name="Cabeza" type="Node3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco/Cabeza"]
+mesh = SubResource("SphereMesh_i5lo7")
+
+[node name="BIzq1" type="Node3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58, 0.5, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco/BIzq1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+mesh = SubResource("CylinderMesh_v3ofe")
+
+[node name="BIzq2" type="Node3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco/BIzq1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco/BIzq1/BIzq2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+mesh = SubResource("CylinderMesh_jarup")
+
+[node name="BDer1" type="Node3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.58, 0.5, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco/BDer1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+mesh = SubResource("CylinderMesh_4dtxy")
+
+[node name="BDer2" type="Node3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco/BDer1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco/BDer1/BDer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+mesh = SubResource("CylinderMesh_wvp5c")
+
+[node name="PIzq1" type="Node3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.5, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco/PIzq1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+mesh = SubResource("CylinderMesh_jxoh3")
+
+[node name="PIzq2" type="Node3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco/PIzq1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco/PIzq1/PIzq2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+mesh = SubResource("CylinderMesh_5ot5b")
+
+[node name="PDer1" type="Node3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.5, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco/PDer1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+mesh = SubResource("CylinderMesh_dayhp")
+
+[node name="PDer2" type="Node3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco/PDer1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="CharaCamera1/Body/Mesh/PlayerAnimation/Tronco/PDer1/PDer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+mesh = SubResource("CylinderMesh_so8ia")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xwpvi")
+script = ExtResource("20_wle8y")
+
+[node name="platabrilla" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.8339, 13.8525, -4.52021)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platabrilla"]
+material_override = SubResource("StandardMaterial3D_664db")
+mesh = SubResource("BoxMesh_0nro7")
+
+[node name="beethoven1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.0422, 0)
+script = ExtResource("22_xbojw")
+
+[node name="bola" type="MeshInstance3D" parent="beethoven1"]
+material_override = SubResource("StandardMaterial3D_3lk4v")
+mesh = SubResource("SphereMesh_y8jli")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="beethoven1/bola"]
+light_energy = 20.0
+script = ExtResource("23_revub")
+
+[node name="bola2" type="MeshInstance3D" parent="beethoven1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6091, 0, 0)
+material_override = SubResource("StandardMaterial3D_3lk4v")
+mesh = SubResource("SphereMesh_y8jli")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="beethoven1/bola2"]
+light_energy = 20.0
+script = ExtResource("23_revub")
+
+[node name="bola3" type="MeshInstance3D" parent="beethoven1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.609, 0, 0)
+material_override = SubResource("StandardMaterial3D_3lk4v")
+mesh = SubResource("SphereMesh_y8jli")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="beethoven1/bola3"]
+light_energy = 20.0
+script = ExtResource("23_revub")
+
+[node name="bola4" type="MeshInstance3D" parent="beethoven1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.609)
+material_override = SubResource("StandardMaterial3D_3lk4v")
+mesh = SubResource("SphereMesh_y8jli")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="beethoven1/bola4"]
+light_energy = 20.0
+script = ExtResource("23_revub")
+
+[node name="bola5" type="MeshInstance3D" parent="beethoven1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.609)
+material_override = SubResource("StandardMaterial3D_3lk4v")
+mesh = SubResource("SphereMesh_y8jli")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="beethoven1/bola5"]
+light_energy = 20.0
+script = ExtResource("23_revub")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="beethoven1"]
+transparency = 1.0
+use_collision = true
+flip_faces = true
+radius = 50.0
+height = 500.0
+sides = 30
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="beethoven1/CSGCylinder3D"]
+transparency = 1.0
+operation = 2
+radius = 40.0
+height = 500.0
+sides = 30
